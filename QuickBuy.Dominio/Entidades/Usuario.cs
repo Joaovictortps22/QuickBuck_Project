@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace QuickBuy.Dominio.Entidades
 {
-    class Usuario : Entidade
+   public class Usuario : Entidade
     {
         public int Id { get; set; }
 
@@ -20,7 +20,14 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(Email))
+            {
+                AdicionarMensagensValidacao("Email não informado");
+            }
+            if (string.IsNullOrEmpty(Senha))
+            {
+                AdicionarMensagensValidacao("Senha não informada");
+            }
         }
     }
 }

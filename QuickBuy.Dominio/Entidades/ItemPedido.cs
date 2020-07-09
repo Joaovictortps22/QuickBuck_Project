@@ -10,7 +10,14 @@
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            if(ProdutoId == 0)
+            {
+                AdicionarMensagensValidacao("Não identificamos referência do produto");
+            }
+            if(Quantidade == 0)
+            {
+                AdicionarMensagensValidacao("A quantidade do produto não foi informado");
+            }
         }
     }
 }
